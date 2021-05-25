@@ -20,38 +20,38 @@ Considering that and the scope of this exercise, I provided also a version of th
 
 The algorithm (that you can find inside Main.scala) uses lazy evaluation and this is not straightforward if you consider
 that Scala is not a **pure functional language** like Haskell.
-In facts, I decided to use **LazyList** to store all the permutations in order to delay the computation when it is needed.
+In facts, I decided to use **LazyList** to store all the permutations in order to delay the computation when needed.
 
 
-The algorithm is composed by 3 functions:
+The algorithm is composed by 3 functions and it's generic for any type of input (like Integers, Strings, Chars etc):
 
 - **permutations**
   this function uses the for-comprehension to generate the recursion tree needed to generate the permutations. 
   
-- **interleave1** and **interleave2** inserts the given element to all possible positions of the list.
+- **interleave1** and **interleave2** to insert the given element in all possible positions of the list.
 
 At the end, the result is printed like requested.
 
-Some consideration on the complexity:
+Some considerations on the complexity:
 
 - **space** is not a problem thanks to lazy evaluation, you don't have to load in memory all the permutations at once to print them.
-In fact, if you substitute LazyList with any other strict Scala collection like Seq, it is easily that the JVM asks for more heap memory.
+In fact, if you substitute the LazyList with any other strict Scala collection like Seq, it's likely that the JVM will ask you for more heap memory.
 Obviously, by waiting enough time you will reach some memory limit.
   
-- **time** complexity I think that is not so improvable (at least significantly) because even if (absurd) the program
-might be able to generate all the permutation in linear time **O(n)** you have in any case **n!** permutations.
+- **time** complexity I think that is not so improvable (at least significantly) because even if the program
+generates all the permutation in linear time **O(n)** you have in any case **n!** permutations.
   
-The time complexity of permutations() is **O(n • n!)**.
+The time complexity of my permutations() function is **O(n • n!)**.
 
 
 
 *PS.*
-the part of loading the input from a file is missing (only in comments) because I used the function *range* to generate the input.
-(I tested it against input of size equal to 60 where 60! is greater than the number of atoms in the universe, so I'm quite confident 
-that the algorithm can take any input from file).
+Loading the input from a file is a missing feature (only specified in comments) because I used the function *range* to generate the input.
+(I executed it without memory leaks against input of size 60 which the factorial is greater than the number of atoms in the universe, so I'm quite confident 
+that the algorithm can take any input with any size from file).
 
 
-I founded that more comfortable to solve the problem, but you can check this repo: [algoritmi-avanzati](https://github.com/eltonsst/algoritmi-avanzati) 
+I founded the range function more comfortable to solve the problem, but you can check this repo: [algoritmi-avanzati](https://github.com/eltonsst/algoritmi-avanzati) 
 where for the course of Advanced Algorithm I used a lot the *OS* library to read and map lines from dataset (.txt).
 You can also find implementation of algorithms for **minimum spanning tree** and **traveling sales problem**.
 
