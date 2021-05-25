@@ -22,7 +22,8 @@ object Main extends App {
     }
   }
   
-  permutations(List.range(1, 20)).foreach(l => println(l.force))
+  // 60! > all atoms in the universe 
+  permutations(List.range(1, 60)).foreach(l => println(l.force))
   
   /*
     or read input from file:
