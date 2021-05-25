@@ -26,7 +26,7 @@ In facts, I decided to use **LazyList** to store all the permutations in order t
 The algorithm is composed by 3 functions:
 
 - **permutations**
-  this function uses for-comprehension to generate the recursion tree needed to generate the permutations. 
+  this function uses the for-comprehension to generate the recursion tree needed to generate the permutations. 
   
 - **interleave1** and **interleave2** inserts the given element to all possible positions of the list.
 
